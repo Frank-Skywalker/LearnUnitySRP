@@ -9,6 +9,7 @@ Shader "JRP/Unlit"
         Pass
         {
             HLSLPROGRAM
+            #pragma multi_compile_instancing
             #pragma vertex JRPUnlitPassVertex
             #pragma fragment JRPUnlitPassFragment
             #include "JRPUnlitPass.hlsl"

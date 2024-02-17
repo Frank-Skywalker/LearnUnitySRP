@@ -9,6 +9,11 @@ public class JRPipeline : RenderPipeline
 {
     CameraRenderer renderer = new CameraRenderer();
 
+    public JRPipeline()
+    {
+        GraphicsSettings.useScriptableRenderPipelineBatching = true;
+    }
+    
     protected override void Render(ScriptableRenderContext context, Camera[] cameras)
     {}
 

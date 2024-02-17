@@ -8,10 +8,14 @@ using UnityEngine.Rendering;
 public class JRPipeline : RenderPipeline
 {
     CameraRenderer renderer = new CameraRenderer();
-
-    public JRPipeline()
+    private bool useDynamicBatching;
+    private bool useGPUInstancing;
+    
+    public JRPipeline(bool useDynamicBatching, bool useGPUInstancing, bool useSRPBatcher)
     {
-        GraphicsSettings.useScriptableRenderPipelineBatching = true;
+        this.useDynamicBatching = useDynamicBatching;
+        this.useGPUInstancing = useGPUInstancing;
+        GraphicsSettings.useScriptableRenderPipelineBatching = useSRPBatcher;
     }
     
     protected override void Render(ScriptableRenderContext context, Camera[] cameras)
@@ -20,7 +24,7 @@ public class JRPipeline : RenderPipeline
     protected override void Render(ScriptableRenderContext context, List<Camera> cameras)
     {
         foreach (var camera in cameras) {
-            renderer.Render(context, camera);
+            renderer.Render(context, camera, useDynamicBatching, useGPUInstancing);
         }
     }
 }

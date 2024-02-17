@@ -12,3 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1743a41cf4f61264d8986074ddc12e80, type: 3}
   m_Name: JRPipeline
   m_EditorClassIdentifier: 
+  useDyanmicBatching: 0
+  useGPUInstancing: 1
+  useSRPBatcher: 1
